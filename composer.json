@@ -1,11 +1,13 @@
 {
-    "name": "schulzefelix/laravel-bigquery",
+    "name": "hankz/laravel-google-bigquery",
     "type": "library",
     "description": "",
     "keywords": [
-        "laravel"
+        "laravel",
+        "google",
+        "bigquery"
     ],
-    "homepage": "https://github.com/schulzefelix/laravel-bigquery",
+    "homepage": "https://github.com/hankz1108/laravel-google-bigquery",
     "license": "MIT",
     "authors": [
         {
@@ -13,18 +15,24 @@
             "email": "github@schulze.co",
             "homepage": "https://schulze.co",
             "role": "Developer"
+        },
+        {
+            "name": "Hankz",
+            "email": "hankz1108@gmail.com",
+            "homepage": "https://hankz1108.github.io",
+            "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.1",
         "google/cloud-bigquery": "^1.24",
-        "illuminate/support": "^10.0",
-        "symfony/cache": "^6.0"
+        "illuminate/support": "^10.0|^11.0",
+        "symfony/cache": "^6.0|^7.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.4",
-        "orchestra/testbench": "^8.0",
-        "phpunit/phpunit": "^9.5.10"
+        "orchestra/testbench": "^8.0|^9.0",
+        "phpunit/phpunit": "^9.5.10|^10.0"
     },
     "autoload": {
         "psr-4": {
