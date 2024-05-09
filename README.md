@@ -8,19 +8,23 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 
+> [!TIP]
+> This package is forked from [schulzefelix/laravel-bigquery](https://github.com/schulzefelix/laravel-bigquery) and enhanced with support for the latest versions of Laravel and PHP.
+> If the version you want to use is already supported in the original repository, it's recommended to use the original version.
+
 Using this package you can easily interact with the Google BigQuery API.
 
 ## Install
 
 This package can be installed through Composer.
 
-``` bash
-composer require schulzefelix/laravel-bigquery
+```bash
+composer require hankz/laravel-google-bigquery
 ```
 
 Optionally, you can publish the config file of this package with this command:
 
-``` bash
+```bash
 php artisan vendor:publish --provider="SchulzeFelix\BigQuery\BigQueryServiceProvider"
 ```
 
@@ -28,7 +32,7 @@ The following config file will be published in `config/bigquery.php`
 
 ```php
 return [
- 
+
     /*
     |--------------------------------------------------------------------------
     | Application Credentials
@@ -39,7 +43,7 @@ return [
     | https://googlecloudplatform.github.io/google-cloud-php/#/docs/google-cloud/v0.35.0/guides/authentication
     |
     */
- 
+
     'application_credentials' => env('GOOGLE_CLOUD_APPLICATION_CREDENTIALS'),
 
 
@@ -51,7 +55,7 @@ return [
     | https://docs.vapor.build/1.0/projects/environments.html#secrets
     */
     //'keyFile' => json_decode(trim(env('GOOGLE_CLOUD_APPLICATION_CREDENTIALS')), true),
- 
+
     /*
     |--------------------------------------------------------------------------
     | Project ID
@@ -61,9 +65,9 @@ return [
     | while the Project ID is required by the Google Cloud client libraries to authenticate API requests.
     |
     */
- 
+
     'project_id' => env('GOOGLE_CLOUD_PROJECT_ID'),
- 
+
     /*
     |--------------------------------------------------------------------------
     | Client Auth Cache Store
@@ -74,9 +78,9 @@ return [
     | Supported: "apc", "array", "database", "file", "memcached", "redis"
     |
     */
- 
+
     'auth_cache_store' => 'file',
- 
+
     /*
     |--------------------------------------------------------------------------
     | Client Options
@@ -87,11 +91,11 @@ return [
     |
     | Optional parameters: "authCacheOptions", "authHttpHandler", "httpHandler", "retries", "scopes", "returnInt64AsObject"
     */
- 
+
     'client_options' => [
         'retries' => 3, // Default
     ],
-    
+
     /*
     |--------------------------------------------------------------------------
     | Dataset location
@@ -107,21 +111,19 @@ return [
 ];
 ```
 
-
-
-
 ## Usage
 
 This package just initialize the BigQuery connection, you can use every method like in Google's API.
 You can use the provided Facade or retrieve the it from the IoC Container.
+
 ```php
 BigQuery::apiMethod();
- 
+
 app('bigquery')->apiMethod();
 ```
 
-
 Here are two basic example to create a dataset and check for existence of a table
+
 ### Create Dataset
 
 ```php
@@ -140,7 +142,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Testing
 
-``` bash
+```bash
 $ vendor/bin/phpunit
 ```
 
@@ -154,8 +156,8 @@ If you discover any security related issues, please email github@schulze.co inst
 
 ## Credits
 
-- [Felix Schulze][link-author]
-- [All Contributors][link-contributors]
+-   [Felix Schulze][link-author]
+-   [All Contributors][link-contributors]
 
 ## License
 
@@ -167,7 +169,6 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/schulzefelix/laravel-bigquery.svg?style=flat-square
 [ico-code-quality]: https://scrutinizer-ci.com/g/schulzefelix/laravel-bigquery/badges/quality-score.png?b=master
 [ico-downloads]: https://img.shields.io/packagist/dt/schulzefelix/laravel-bigquery.svg?style=flat-square
-
 [link-packagist]: https://packagist.org/packages/schulzefelix/laravel-bigquery
 [link-travis]: https://travis-ci.org/schulzefelix/laravel-bigquery
 [link-scrutinizer]: https://scrutinizer-ci.com/g/schulzefelix/laravel-bigquery/code-structure
